@@ -11,4 +11,28 @@ class MagicCard extends Card{
     private ArrayList<Spell> attacks;
 
 
+    /*G&S*/
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Type> getTypes() {
+        return types;
+    }
+
+    public void setTypes(ArrayList<Type> types) {
+        this.types = types;
+    }
+
+    public ArrayList<Spell> getAttacks() {
+        return attacks;
+    }
+
+    public void setAttacks(ArrayList<Spell> attacks) {
+        this.attacks = attacks;
+    }
 }

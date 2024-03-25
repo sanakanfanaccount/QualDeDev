@@ -10,11 +10,18 @@ public class Spell {
         this.cost = cost;
         this.damage = damage;
     }
+
+    public String getString(){
+        return this.name + "\n" + this.description+"\nCosts : "+this.cost+ " \n"+ this.damage+" DMG" ;
+    }
+
+
     Type type1;
     Type type2;
     String name;
     String description;
-
+    int cost;
+    int damage;
 
     /*G&S*/
 
@@ -66,8 +73,6 @@ public class Spell {
         this.damage = damage;
     }
 
-    int cost;
-    int damage;
 
 
 }
