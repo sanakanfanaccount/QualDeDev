@@ -5,7 +5,7 @@ import model.Type;
 
 import java.util.ArrayList;
 
-class PokeCard extends  Card{
+public class PokeCard extends  Card{
 
     public PokeCard(String name, String pokedexDescription, ArrayList<Type> types, ArrayList<Spell> attacks) {
         this.name = name;
