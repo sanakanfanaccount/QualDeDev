@@ -23,9 +23,18 @@ public class PokeCard extends  Card{
     int HP;
 
 
-    public void getString() {
-        System.out.println(this.name + " " +"\n"+this.pokedexDescription +"\n"+ String.valueOf(this.HP) + " HP\n");
-        this.attacks.forEach(result -> System.out.println(result.getString()));
+    @Override
+    public String getString() {
+        String toReturn = "Pokemon card : \n"+this.name + " " +"\n"+this.pokedexDescription +"\n"+ String.valueOf(this.HP) + " HP\n";
+        toReturn +="Types : ";
+        for(Type type : this.types){
+            toReturn += type.getString() +" ";
+        }
+        toReturn +="\n";
+        for(Spell spell :this.attacks){
+            toReturn+= "Attack : "+spell.getString() + " ";
+        }
+        return toReturn;
     }
 
     /*G&S*/

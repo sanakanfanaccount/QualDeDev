@@ -13,18 +13,6 @@ public class Main {
 
         CardList list = new CardList();
 
-        ArrayList<Type> type = new ArrayList<>();
-        type.add(new Type("eau"));
-
-        ArrayList<Spell> spell = new ArrayList<>();
-        spell.add(new Spell(new Type("feu"), new Type("eau"), "tkt je fait mal", "une descrption", 10, 10));
-
-
-        PokeCard carte = new PokeCard("jack", "un pokemon", type, spell);
-
-        list.addCard(carte);
-        list.printListe();
-
         /*DEMO*/
         Spell mystical_fire  = new Spell(new Type("Fire"), new Type("Special"),
                 "Fire Spin", "It damages an enemy. It could also cause the Fire Spin status condition.",
@@ -42,6 +30,9 @@ public class Main {
 
 
         delphox.getString();
+
+        list.addCard(delphox);
+        list.printListe();
 
         System.out.println("Hello world!");
 

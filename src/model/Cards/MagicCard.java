@@ -10,6 +10,10 @@ class MagicCard extends Card{
     private ArrayList<Type> types;
     private ArrayList<Spell> attacks;
 
+    @Override
+    public String getString() {
+    return "Magic Card, unimplemented...";
+    }
 
     /*G&S*/
     public String getName() {
@@ -35,4 +39,7 @@ class MagicCard extends Card{
     public void setAttacks(ArrayList<Spell> attacks) {
         this.attacks = attacks;
     }
+
+
+
 }

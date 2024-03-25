@@ -18,10 +18,7 @@ public class CardList {
 
     public void printListe() {
         for (Card c : liste) {
-            System.out.println("Nom : " + c);
-            for (Type t : c.types) {
-                System.out.println("Type : " + t.getTypeName());
-            }
+            System.out.println(c.getString());
         }
     }
 }
