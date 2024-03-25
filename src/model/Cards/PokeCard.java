@@ -5,20 +5,37 @@ import model.Type;
 
 import java.util.ArrayList;
 
-class PokeCard extends  Card{
-
-    public PokeCard(String name, String pokedexDescription, ArrayList<Type> types, ArrayList<Spell> attacks) {
+public class PokeCard extends  Card{
+    public PokeCard(String name, String pokedexDescription, ArrayList<Type> types, ArrayList<Spell> attacks, int HP) {
         this.name = name;
         this.pokedexDescription = pokedexDescription;
         this.types = types;
         this.attacks = attacks;
+        this.HP = HP;
     }
 
     private String name;
     private String pokedexDescription;
     private ArrayList<Type> types;
     private ArrayList<Spell> attacks;
-    int PV;
+
+    int HP;
+
+
+    public void getString() {
+        System.out.println(this.name + " " +"\n"+this.pokedexDescription +"\n"+ String.valueOf(this.HP) + " HP\n");
+        this.attacks.forEach(result -> System.out.println(result.getString()));
+    }
+
+    /*G&S*/
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
 
     /*G&S*/
     public String getName() {
