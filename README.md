@@ -19,6 +19,7 @@ Le projet a été réalisé en utilisant les technologies suivantes :
 
 ## Log : 
 
+- Création de carte Pokemon/Magic
 - Possibilité de print les cartes
 - Mise en place de Controller
 - Utilisation de MVC
