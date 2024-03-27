@@ -1,11 +1,14 @@
 package model.Cards;
 
+import model.Spell;
 import model.Type;
 
 import java.util.ArrayList;
 
-abstract class Card{
-    private String name;
-    ArrayList<Type> types;
+public abstract class Card{
+    public String name;
+    public ArrayList<Type> types;
 
+    abstract public String getString();
+    abstract public String getCardBrand();
 }
