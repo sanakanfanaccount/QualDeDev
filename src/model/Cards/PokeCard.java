@@ -15,6 +15,14 @@ public class PokeCard extends  Card{
         this.HP = HP;
     }
 
+    public PokeCard(String name){
+        this.name = name;
+        this.pokedexDescription = "empty";
+        this.types = new ArrayList<Type>();
+        this.attacks = new ArrayList<Spell>();
+        this.HP = 0;
+    }
+
     private String name;
     private String pokedexDescription;
     private ArrayList<Type> types;

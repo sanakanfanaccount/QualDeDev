@@ -26,19 +26,14 @@ public class Main {
 
          ArrayList<Spell> delphox_spells = new ArrayList<>();
          delphox_spells.add(mystical_fire);
-        PokeCard delphox = new PokeCard("Delphox",
-                "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.",delphox_types , delphox_spells, 150);
 
-
-        MagicCard example = new MagicCard();
-        example.setName("Example");
-
-        delphox.getString();
+        PokeCard delphox = new PokeCard("Delphox", "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.",delphox_types , delphox_spells, 150);
+        MagicCard example = new MagicCard("Magic card",delphox_types, delphox_spells);
 
         list.addCard(delphox);
         list.addCard(example);
 
-        list.setList(list.filterAndSort("Pokemon"));
+        //list.setList(list.filterAndSort("Pokemon"));
         list.printListe();
 
 
