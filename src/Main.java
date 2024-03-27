@@ -1,4 +1,6 @@
 
+import controller.CardController;
+import controller.ListController;
 import model.CardList;
 
 import model.Cards.MagicCard;
@@ -11,8 +13,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-
-        CardList list = new CardList();
+        ListController listController = new ListController();
 
         /*DEMO*/
         Spell mystical_fire  = new Spell(new Type("Fire"), new Type("Special"),
@@ -30,15 +31,12 @@ public class Main {
         PokeCard delphox = new PokeCard("Delphox", "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.",delphox_types , delphox_spells, 150);
         MagicCard example = new MagicCard("Magic card",delphox_types, delphox_spells);
 
-        list.addCard(delphox);
-        list.addCard(example);
 
-        //list.setList(list.filterAndSort("Pokemon"));
-        list.printListe();
+        listController.createPoke("Delphox", "It gazes into the flame at the tip of its branch to achieve a focused state",delphox_types , delphox_spells, 150);
+        listController.createMagic("Magic card",delphox_types, delphox_spells);
 
+        listController.printList();
 
-
-        System.out.println("Hello world!");
 
     }
 }
