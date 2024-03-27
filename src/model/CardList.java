@@ -2,8 +2,8 @@ package model;
 
 import model.Cards.Card;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class CardList {
     private ArrayList<Card> list;
@@ -24,14 +24,32 @@ public class CardList {
         }
     }
 
-    public ArrayList<Card> filterAndSort(String cardBrand){
-
-        ArrayList<Card> toReturn = new ArrayList<>();
-          this.list.stream()
-                .filter(card -> Objects.equals(card.getCardBrand(), cardBrand))
-                  .forEach(toReturn::add);
-
-          return toReturn;
+    public ArrayList<Card> filterAndSort(String cardBrand,String filter, String filterValue) {
+            ArrayList<Card> finalList = new ArrayList<>();
+             list.stream()
+                .filter(card -> {
+                    if(cardBrand.isEmpty())
+                        return true;
+                    return card.getClass().getName().equals("model.Cards."+cardBrand+"Card");
+                })
+                    .filter( card -> {
+                        if(filter.isEmpty() && filterValue.isEmpty())
+                            return true;
+                        try {
+                            Field field = Class.forName("model.Cards."+cardBrand+"Card").getDeclaredField(filter);
+                            field.setAccessible(true);
+                            Object value = field.get(card);
+                            return value.toString().equals(filterValue);
+                        } catch (IllegalAccessException | NoSuchFieldException ignored) {
+                            System.out.println("CHAMP NON TROUVE FILTER");
+                            return false;
+                        } catch (ClassNotFoundException e) {
+                            System.out.println("CLASSE NON TROUVEE FILTER");
+                            return false;
+                        }
+                    })
+                  .forEach(finalList::add);
+             return finalList;
     }
 
     public ArrayList<Card> getList() {

@@ -2,14 +2,14 @@
 import model.CardList;
 
 import model.Cards.MagicCard;
-import model.Cards.PokeCard;
+import model.Cards.PokemonCard;
 import model.Spell;
 import model.Type;
 
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException {
 
 
         CardList list = new CardList();
@@ -26,7 +26,7 @@ public class Main {
 
          ArrayList<Spell> delphox_spells = new ArrayList<>();
          delphox_spells.add(mystical_fire);
-        PokeCard delphox = new PokeCard("Delphox",
+        PokemonCard delphox = new PokemonCard("Delphox",
                 "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.",delphox_types , delphox_spells, 150);
 
 
@@ -38,7 +38,7 @@ public class Main {
         list.addCard(delphox);
         list.addCard(example);
 
-        list.setList(list.filterAndSort("Pokemon"));
+        list.setList(list.filterAndSort("Pokemon", "name", "Delphox"));
         list.printListe();
 
 

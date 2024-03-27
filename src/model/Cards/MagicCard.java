@@ -10,15 +10,13 @@ public class MagicCard extends Card{
     private ArrayList<Type> types;
     private ArrayList<Spell> attacks;
 
-    @Override
-    public String getCardBrand(){
-        return "Magic";
-    }
 
     @Override
     public String getString() {
     return "Magic Card, unimplemented...";
     }
+
+
 
     /*G&S*/
     public String getName() {

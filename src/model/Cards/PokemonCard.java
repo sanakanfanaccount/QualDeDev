@@ -5,9 +5,9 @@ import model.Type;
 
 import java.util.ArrayList;
 
-public class PokeCard extends  Card{
+public class PokemonCard extends  Card{
 
-    public PokeCard(String name, String pokedexDescription, ArrayList<Type> types, ArrayList<Spell> attacks, int HP) {
+    public PokemonCard(String name, String pokedexDescription, ArrayList<Type> types, ArrayList<Spell> attacks, int HP) {
         this.name = name;
         this.pokedexDescription = pokedexDescription;
         this.types = types;
@@ -21,12 +21,6 @@ public class PokeCard extends  Card{
     private ArrayList<Spell> attacks;
 
     int HP;
-
-
-    @Override
-    public String getCardBrand(){
-        return "Pokemon";
-    }
 
 
     @Override
