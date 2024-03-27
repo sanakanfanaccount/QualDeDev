@@ -24,6 +24,12 @@ public class PokeCard extends  Card{
 
 
     @Override
+    public String getCardBrand(){
+        return "Pokemon";
+    }
+
+
+    @Override
     public String getString() {
         String toReturn = "Pokemon card : \n"+this.name + " " +"\n"+this.pokedexDescription +"\n"+ String.valueOf(this.HP) + " HP\n";
         toReturn +="Types : ";

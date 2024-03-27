@@ -1,6 +1,7 @@
 
 import model.CardList;
 
+import model.Cards.MagicCard;
 import model.Cards.PokeCard;
 import model.Spell;
 import model.Type;
@@ -29,10 +30,18 @@ public class Main {
                 "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.",delphox_types , delphox_spells, 150);
 
 
+        MagicCard example = new MagicCard();
+        example.setName("Example");
+
         delphox.getString();
 
         list.addCard(delphox);
+        list.addCard(example);
+
+        list.setList(list.filterAndSort("Pokemon"));
         list.printListe();
+
+
 
         System.out.println("Hello world!");
 

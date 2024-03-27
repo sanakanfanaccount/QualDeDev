@@ -1,24 +1,45 @@
 package model;
 
 import model.Cards.Card;
-import model.Cards.PokeCard;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CardList {
-    private ArrayList<Card> liste;
+    private ArrayList<Card> list;
+
+
 
     public CardList() {
-        liste = new ArrayList<>();
+        list = new ArrayList<>();
     }
 
     public void addCard(Card c) {
-        liste.add(c);
+        list.add(c);
     }
 
     public void printListe() {
-        for (Card c : liste) {
+        for (Card c : list) {
             System.out.println(c.getString());
         }
     }
+
+    public ArrayList<Card> filterAndSort(String cardBrand){
+
+        ArrayList<Card> toReturn = new ArrayList<>();
+          this.list.stream()
+                .filter(card -> Objects.equals(card.getCardBrand(), cardBrand))
+                  .forEach(toReturn::add);
+
+          return toReturn;
+    }
+
+    public ArrayList<Card> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Card> list) {
+        this.list = list;
+    }
+
 }

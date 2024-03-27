@@ -10,4 +10,5 @@ public abstract class Card{
     public ArrayList<Type> types;
 
     abstract public String getString();
+    abstract public String getCardBrand();
 }
