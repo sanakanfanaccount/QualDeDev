@@ -4,6 +4,7 @@ import model.Cards.Card;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class CardList {
     private ArrayList<Card> list;
@@ -20,11 +21,11 @@ public class CardList {
 
     public void printListe() {
         for (Card c : list) {
-            System.out.println(c.getString());
+            System.out.println("\n==========================+\n"+c.getString()+"\n===========================");
         }
     }
 
-    public ArrayList<Card> filterAndSort(String cardBrand,String filter, String filterValue) {
+    public ArrayList<Card> filterAndSort(String cardBrand,String filter, String filterValue, String sortFilter, String sortValue) {
             ArrayList<Card> finalList = new ArrayList<>();
              list.stream()
                 .filter(card -> {
@@ -48,6 +49,23 @@ public class CardList {
                             return false;
                         }
                     })
+                     .sorted(Comparator.comparing(card -> {
+                         if(sortFilter.isEmpty() || sortValue.isEmpty())
+                             return "";
+                         try {
+                             Field field = Class.forName("model.Cards."+cardBrand+"Card").getDeclaredField(filter);
+                             field.setAccessible(true);
+                             Object value = field.get(card);
+                             return value.toString();
+
+                         } catch (IllegalAccessException | NoSuchFieldException ignored) {
+                             System.out.println("CHAMP NON TROUVE FILTER");
+                             return "";
+                         } catch (ClassNotFoundException e) {
+                             System.out.println("CLASSE NON TROUVEE FILTER");
+                             return "";
+                         }
+                     }))
                   .forEach(finalList::add);
              return finalList;
     }

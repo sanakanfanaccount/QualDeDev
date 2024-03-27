@@ -38,10 +38,8 @@ public class Main {
         list.addCard(delphox);
         list.addCard(example);
 
-        list.setList(list.filterAndSort("Pokemon", "name", "Delphox"));
+        list.setList(list.filterAndSort("Pokemon", "name", "Delphox", "", ""));
         list.printListe();
-
-
 
         System.out.println("Hello world!");
 
