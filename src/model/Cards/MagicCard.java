@@ -10,10 +10,32 @@ public class MagicCard extends Card{
     private ArrayList<Type> types;
     private ArrayList<Spell> attacks;
 
+    public MagicCard(String name, ArrayList<Type> types, ArrayList<Spell> attacks){
+        this.name = name;
+        this.types = types;
+        this.attacks = attacks;
+    }
+
+    public MagicCard(String name){
+        this.name = name;
+        this.types = new ArrayList<Type>();
+        this.attacks = new ArrayList<Spell>();
+    }
+
+
 
     @Override
     public String getString() {
-    return "Magic Card, unimplemented...";
+        String toReturn = "Magic card : \n"+this.name +"\n";
+        toReturn +="Types : ";
+        for(Type type : this.types){
+            toReturn += type.getString() +" ";
+        }
+        toReturn +="\n";
+        for(Spell spell :this.attacks){
+            toReturn+= "Attack : "+spell.getString() + " ";
+        }
+        return toReturn;
     }
 
 

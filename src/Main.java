@@ -1,4 +1,6 @@
 
+import controller.CardController;
+import controller.ListController;
 import model.CardList;
 
 import model.Cards.MagicCard;
@@ -11,8 +13,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws NoSuchFieldException {
 
-
-        CardList list = new CardList();
+        ListController listController = new ListController();
 
         /*DEMO*/
         Spell mystical_fire  = new Spell(new Type("Fire"), new Type("Special"),
@@ -20,28 +21,25 @@ public class Main {
                 2, 150);
 
 
-         ArrayList<Type> delphox_types = new ArrayList<>();
-         delphox_types.add(new Type("Fire"));
-         delphox_types.add(new Type("Psychic"));
+        ArrayList<Type> delphox_types = new ArrayList<>();
+        delphox_types.add(new Type("Fire"));
+        delphox_types.add(new Type("Psychic"));
 
-         ArrayList<Spell> delphox_spells = new ArrayList<>();
-         delphox_spells.add(mystical_fire);
-        PokemonCard delphox = new PokemonCard("Delphox",
-                "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.",delphox_types , delphox_spells, 150);
+        ArrayList<Spell> delphox_spells = new ArrayList<>();
+        delphox_spells.add(mystical_fire);
+
+        PokemonCard delphox = new PokemonCard("Delphox");
 
 
-        MagicCard example = new MagicCard();
-        example.setName("Example");
+        listController.createPoke("Delphox", "It gazes into the flame at the tip of its branch to achieve a focused state",delphox_types , delphox_spells, 150);
+        listController.createMagic("Magic card",delphox_types, delphox_spells);
 
-        delphox.getString();
+        listController.getList().setList(listController.getList().filterAndSort("Pokemon", "name", "Delphox", "", ""));
 
-        list.addCard(delphox);
-        list.addCard(example);
 
-        list.setList(list.filterAndSort("Pokemon", "name", "Delphox", "", ""));
-        list.printListe();
-
+        listController.printList();
         System.out.println("Hello world!");
+
 
     }
 }
