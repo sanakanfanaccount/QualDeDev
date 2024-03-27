@@ -2,13 +2,12 @@ package model;
 
 import model.Cards.Card;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Comparator;
 
 public class CardList {
     private ArrayList<Card> list;
-
-
 
     public CardList() {
         list = new ArrayList<>();
@@ -20,18 +19,53 @@ public class CardList {
 
     public void printListe() {
         for (Card c : list) {
-            System.out.println(c.getString() + "\n");
+            System.out.println("\n==========================+\n"+c.getString()+"\n===========================");
         }
     }
 
-    public ArrayList<Card> filterAndSort(String cardBrand){
+    public ArrayList<Card> filterAndSort(String cardBrand,String filter, String filterValue, String sortFilter, String sortValue) {
+        ArrayList<Card> finalList = new ArrayList<>();
+        list.stream()
+                .filter(card -> {
+                    if(cardBrand.isEmpty())
+                        return true;
+                    return card.getClass().getName().equals("model.Cards."+cardBrand+"Card");
+                })
+                .filter( card -> {
+                    if(filter.isEmpty() && filterValue.isEmpty())
+                        return true;
+                    try {
+                        Field field = Class.forName("model.Cards."+cardBrand+"Card").getDeclaredField(filter);
+                        field.setAccessible(true);
+                        Object value = field.get(card);
+                        return value.toString().equals(filterValue);
+                    } catch (IllegalAccessException | NoSuchFieldException ignored) {
+                        System.out.println("CHAMP NON TROUVE FILTER");
+                        return false;
+                    } catch (ClassNotFoundException e) {
+                        System.out.println("CLASSE NON TROUVEE FILTER");
+                        return false;
+                    }
+                })
+                .sorted(Comparator.comparing(card -> {
+                    if(sortFilter.isEmpty() || sortValue.isEmpty())
+                        return "";
+                    try {
+                        Field field = Class.forName("model.Cards."+cardBrand+"Card").getDeclaredField(filter);
+                        field.setAccessible(true);
+                        Object value = field.get(card);
+                        return value.toString();
 
-        ArrayList<Card> toReturn = new ArrayList<>();
-          this.list.stream()
-                .filter(card -> Objects.equals(card.getCardBrand(), cardBrand))
-                  .forEach(toReturn::add);
-
-          return toReturn;
+                    } catch (IllegalAccessException | NoSuchFieldException ignored) {
+                        System.out.println("CHAMP NON TROUVE FILTER");
+                        return "";
+                    } catch (ClassNotFoundException e) {
+                        System.out.println("CLASSE NON TROUVEE FILTER");
+                        return "";
+                    }
+                }))
+                .forEach(finalList::add);
+        return finalList;
     }
 
     public ArrayList<Card> getList() {

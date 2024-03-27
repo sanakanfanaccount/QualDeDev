@@ -22,10 +22,7 @@ public class MagicCard extends Card{
         this.attacks = new ArrayList<Spell>();
     }
 
-    @Override
-    public String getCardBrand(){
-        return "Magic";
-    }
+
 
     @Override
     public String getString() {
@@ -40,6 +37,8 @@ public class MagicCard extends Card{
         }
         return toReturn;
     }
+
+
 
     /*G&S*/
     public String getName() {
