@@ -16,3 +16,9 @@ Le projet a été réalisé en utilisant les technologies suivantes :
 - Meilleure lisibilité du code avec des conventions communes
 - Code plus propre et ordonné grâce à l'utilisation de branches
 - Utilisation de MVC
+
+## Log : 
+
+- Possibilité de print les cartes
+- Mise en place de Controller
+- Utilisation de MVC
