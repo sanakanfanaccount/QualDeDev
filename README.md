@@ -1,7 +1,5 @@
 # Projet de Modélisation de Jeu de Cartes (TCG) Pokémon et Magic
 
-![Nom_de_l'image](UntitledWorkspace.png)
-
 ## Contexte :
 
 Modélisation d'un jeu de cartes (TCG) Pokémon et Magic
@@ -25,3 +23,5 @@ Le projet a été réalisé en utilisant les technologies suivantes :
 - Possibilité de print les cartes
 - Mise en place de Controller
 - Utilisation de MVC
+
+![Nom_de_l'image](UntitledWorkspace.png)
