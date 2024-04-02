@@ -6,6 +6,9 @@ public class Type {
     public Type(String typeName) {
         this.typeName = typeName;
     }
+    public String getString() {
+        return this.typeName;
+    }
 
     /*G&S*/
 
@@ -16,4 +19,6 @@ public class Type {
     public void setTypeName(String typeName) {
         this.typeName = typeName;
     }
+
+
 }

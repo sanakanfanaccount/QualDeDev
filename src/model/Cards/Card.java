@@ -9,4 +9,5 @@ public abstract class Card{
     public String name;
     public ArrayList<Type> types;
 
+    abstract public String getString();
 }
