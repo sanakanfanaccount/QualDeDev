@@ -16,8 +16,8 @@ public class ListController{
         list.addCard(cardController.createPoke(name,description,types,spell,HP));
     }
 
-    public void createMagic(String name, ArrayList<Type> types, ArrayList<Spell> spell) {
-        list.addCard(cardController.createMagic(name, types,spell));
+    public void createMagic(String name, String description,ArrayList<Type> types) {
+        list.addCard(cardController.createMagic(name,description,types));
     }
 
     public void printList() {

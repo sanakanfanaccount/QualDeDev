@@ -33,7 +33,8 @@ public class PokemonCard extends  Card{
 
     @Override
     public String getString() {
-        String toReturn = "Pokemon card : \n"+this.name + " " +"\n"+this.pokedexDescription +"\n"+ String.valueOf(this.HP) + " HP\n";
+        String toReturn = "Pokemon card : \n"+this.name + " " +"\n"+this.pokedexDescription +"\n"+ String.valueOf(this.HP) + " HP";
+        /*
         toReturn +="Types : ";
         for(Type type : this.types){
             toReturn += type.getString() +" ";
@@ -42,6 +43,7 @@ public class PokemonCard extends  Card{
         for(Spell spell :this.attacks){
             toReturn+= "Attack : "+spell.getString() + " ";
         }
+        */
         return toReturn;
     }
 

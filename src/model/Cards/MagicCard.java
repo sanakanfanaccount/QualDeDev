@@ -8,25 +8,19 @@ import java.util.ArrayList;
 public class MagicCard extends Card{
     private String name;
     private ArrayList<Type> types;
-    private ArrayList<Spell> attacks;
+    private String description;
 
-    public MagicCard(String name, ArrayList<Type> types, ArrayList<Spell> attacks){
+
+    public MagicCard(String name, String description, ArrayList<Type> types) {
         this.name = name;
         this.types = types;
-        this.attacks = attacks;
+        this.description = description;
     }
-
-    public MagicCard(String name){
-        this.name = name;
-        this.types = new ArrayList<Type>();
-        this.attacks = new ArrayList<Spell>();
-    }
-
-
 
     @Override
     public String getString() {
-        String toReturn = "Magic card : \n"+this.name +"\n";
+        String toReturn = "Magic card : \n"+this.name;
+        /*
         toReturn +="Types : ";
         for(Type type : this.types){
             toReturn += type.getString() +" ";
@@ -34,13 +28,23 @@ public class MagicCard extends Card{
         toReturn +="\n";
         for(Spell spell :this.attacks){
             toReturn+= "Attack : "+spell.getString() + " ";
-        }
+        }*/
         return toReturn;
     }
 
 
 
     /*G&S*/
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }
@@ -56,15 +60,5 @@ public class MagicCard extends Card{
     public void setTypes(ArrayList<Type> types) {
         this.types = types;
     }
-
-    public ArrayList<Spell> getAttacks() {
-        return attacks;
-    }
-
-    public void setAttacks(ArrayList<Spell> attacks) {
-        this.attacks = attacks;
-    }
-
-
 
 }

@@ -14,7 +14,7 @@ public class CardController{
         return new PokemonCard(name, description ,types , spell, HP);
     }
 
-    public MagicCard createMagic(String name, ArrayList<Type> types, ArrayList<Spell> spell) {
-        return new MagicCard(name,types, spell);
+    public MagicCard createMagic(String name,String description,ArrayList<Type> types) {
+        return new MagicCard(name,description,types);
     }
 }

@@ -19,7 +19,7 @@ public class CardList {
 
     public void printListe() {
         for (Card c : list) {
-            System.out.println("\n==========================+\n"+c.getString()+"\n===========================");
+            System.out.println("===========================\n"+c.getString()+"\n===========================");
         }
     }
 
