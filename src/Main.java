@@ -28,14 +28,13 @@ public class Main {
         ArrayList<Spell> delphox_spells = new ArrayList<>();
         delphox_spells.add(mystical_fire);
 
-        PokemonCard delphox = new PokemonCard("Delphox");
-
 
         listController.createPoke("Delphox", "It gazes into the flame at the tip of its branch to achieve a focused state",delphox_types , delphox_spells, 150);
         listController.createMagic("Magic card",delphox_types, delphox_spells);
+        listController.createPoke("Exemple", "TEST",delphox_types , delphox_spells, 10);
 
-        listController.getList().setList(listController.getList().filterAndSort("Pokemon", "name", "Delphox", "", ""));
 
+        listController.getList().setList(listController.getList().filterAndSort("Pokemon", "", "", "HP", ""));
 
         listController.printList();
         System.out.println("Hello world!");

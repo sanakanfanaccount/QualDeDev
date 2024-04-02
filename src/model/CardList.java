@@ -32,7 +32,7 @@ public class CardList {
                     return card.getClass().getName().equals("model.Cards."+cardBrand+"Card");
                 })
                 .filter( card -> {
-                    if(filter.isEmpty() && filterValue.isEmpty())
+                    if(filter.isEmpty())
                         return true;
                     try {
                         Field field = Class.forName("model.Cards."+cardBrand+"Card").getDeclaredField(filter);
